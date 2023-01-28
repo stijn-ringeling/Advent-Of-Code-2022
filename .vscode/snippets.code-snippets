@@ -35,5 +35,22 @@
 			"}"
 		],
 		"description": "Create a solver template with minimal implementation"
-	}
+	},
+	"AOC file reading template": {
+		"scope": "rust",
+		"prefix": "aoc_loop",
+		"body": [
+			"match get_input(&self.filename) {",
+			"\tErr(_) => println!(\"Could not read filename: {}\", self.filename),",
+			"\tOk(lines) => {",
+			"\t\tfor line in lines{",
+			"\t\t\tif let Ok(line) = line{",
+			"\t\t\t\t${1}",	
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+			"}",
+			"(0.into(), 0.into())",
+		]
+		}
 }

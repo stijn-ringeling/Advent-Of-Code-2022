@@ -17,6 +17,7 @@ pub mod day12;
 pub mod day13;
 pub mod day14;
 pub mod day15;
+pub mod day16;
 
 
 pub fn get_solver(day: u8, run_example:bool) -> Box<dyn Solver>{
@@ -37,6 +38,7 @@ pub fn get_solver(day: u8, run_example:bool) -> Box<dyn Solver>{
             13 => Box::new(day13::Solver::new(filename)),
             14 => Box::new(day14::Solver::new(filename)),
             15 => Box::new(day15::Solver::new(filename)),
+            16 => Box::new(day16::Solver::new(filename)),
             _ => todo!("Day not implemented (yet)")
     }
 }

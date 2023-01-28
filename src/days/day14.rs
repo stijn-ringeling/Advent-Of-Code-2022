@@ -67,7 +67,7 @@ impl Display for SandMap{
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "X: ({},{})\nY: ({},{})", self.min_x, self.max_x, 0, self.max_y)?;
         writeln!(f, "Sand={}", self.sand.len())?;
-        for y in 0..self.max_y+1{
+        for y in 0..self.max_y+2{
             write!(f, "{:03}", y)?;
             for x in self.min_x..self.max_x+1{
                 if x==500 && y == 0{
@@ -89,6 +89,7 @@ impl Display for SandMap{
             }
             writeln!(f,"")?;
         }
+        write!(f, "{:03}", self.max_y+2)?;
         for _ in self.min_x..self.max_x+1{
             write!(f, "#")?;
         }
@@ -126,7 +127,7 @@ impl solution::Solver for Solver{
                         if sand_y >= sandmap.max_y{
                             if p1 == 0{
                                 p1 = sandmap.sand.len();
-                                println!("{}", sandmap);
+                                //sprintln!("{}", sandmap);
                             }
                         }
                         if sandmap.get_cell((sand_x, sand_y+1)) == CellState::Free{
@@ -152,7 +153,7 @@ impl solution::Solver for Solver{
                     }
                 }
                 //p1 = sandmap.sand.len();
-                println!("{}", sandmap)
+                //println!("{}", sandmap)
             }
         }
         (p1.into(), p2.into())

@@ -19,6 +19,7 @@ fn main() {
             if args[1] == "-e"{
                 run_example = true;
                 days = &args[2..];
+                env::set_var("AOC_EXAMPLE", "1");
             }else{
                 days = &args[1..];
             }
